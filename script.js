@@ -20,16 +20,29 @@ let currentWordIndex = 0;
 const wordElement = document.getElementById('word');
 const translationElement = document.getElementById('translation');
 const showTranslationButton = document.getElementById('show-translation');
+const playPronunciationButton = document.getElementById('play-pronunciation');
 const nextWordButton = document.getElementById('next-word');
+const flashcardCounterElement = document.getElementById('flashcard-counter');
+
+function updateFlashcardCounter() {
+    flashcardCounterElement.textContent = `Flashcard: ${currentWordIndex + 1}/${words.length}`;
+}
 
 function showWord() {
     wordElement.textContent = words[currentWordIndex].russian;
     translationElement.textContent = words[currentWordIndex].english;
     translationElement.style.display = 'none';
+    updateFlashcardCounter();
 }
 
 function showTranslation() {
     translationElement.style.display = 'block';
+}
+
+function playPronunciation() {
+    const utterance = new SpeechSynthesisUtterance(words[currentWordIndex].russian);
+    utterance.lang = 'ru-RU';
+    window.speechSynthesis.speak(utterance);
 }
 
 function nextWord() {
@@ -38,6 +51,7 @@ function nextWord() {
 }
 
 showTranslationButton.addEventListener('click', showTranslation);
+playPronunciationButton.addEventListener('click', playPronunciation);
 nextWordButton.addEventListener('click', nextWord);
 
 showWord();
