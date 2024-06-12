@@ -1,11 +1,4 @@
 const words = [
-    { russian: "Привет", english: "Hello" },
-    { russian: "Как дела?", english: "How are you?" },
-    { russian: "Спасибо", english: "Thank you" },
-    { russian: "Пожалуйста", english: "Please" },
-    { russian: "Да", english: "Yes" },
-    { russian: "Нет", english: "No" },
-    { russian: "Извините", english: "Excuse me" },
     { russian: "Сколько это стоит?", english: "How much does this cost?" },
     { russian: "Где находится ближайший банк?", english: "Where is the nearest bank?" },
     { russian: "Я хотел бы заказать столик на двоих", english: "I would like to reserve a table for two" },
